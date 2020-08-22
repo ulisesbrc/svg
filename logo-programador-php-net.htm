@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SVG</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 	<meta name="viewport" content="width=device-width" />
+</head>
+<body>
+	<style type="text/css">
+		@font-face {
+  font-family: 'Hobo Std';
+  /* Antes de descargar el archivo, le decimos al buscador
+  que intente buscar en local la fuente con nombre
+  Cabin, Cabin Regular o Cabin-Regular */
+  src: local('HoboStd'),
+       local('HoboStd Regular'),
+       local('HoboStd-Regular'),
+       url(HoboStd.otf) format('otf');
+}
+	</style>
+<svg id="contenedor" height="200" width="250" style="margin:auto;margin-top:10%;display: block;">
+</svg>
+<script type="text/javascript">
+	var svgNS = "http:\/\/www.w3.org/2000/svg"
+	var R = 100; //radio
+	var fill = '#8892bf';
+	var stroke = '#4f5b93';
+	var poligono = document.createElementNS(svgNS,"polygon");
+	//establecemos los atributos al circulo
+	//  ( cx, cy, r, fill y stroke).
+	//círculo blanco bg ( fill="#fff" ) con un borde fino negro ( stroke="#000" ) y un radio de 80.
+
+	poligono.setAttributeNS(null,"points", "150,50 60,150 190,190");
+	poligono.setAttributeNS(null,"fill", fill); 
+	poligono.setAttributeNS(null,"stroke", stroke);
+	poligono.setAttributeNS(null,"stroke-linejoin", "round");
+	poligono.setAttributeNS(null,"stroke-width", "10");
+	
+
+	
+
+	//Al final adjuntamos el elemento circulo al contenedor SVG.
+	var contenedor = document.getElementById("contenedor");
+	contenedor.appendChild(poligono);
+	var texto = document.createElementNS(svgNS,"text");
+	texto.setAttributeNS(null,"font-family", "Hobo Std"); 
+	texto.setAttributeNS(null,"font-size", 31);
+	texto.setAttributeNS(null,"fill", "#fff");
+	
+contenedor.appendChild(texto);
+var tspan = document.createElementNS(svgNS,"tspan");
+tspan.textContent = "<?php";
+tspan.setAttribute("x",82);
+tspan.setAttribute("y",148);
+
+texto.appendChild(tspan);
+contenedor.appendChild(texto);
+//<polygon points="100,100 100,200 200,200" fill="red" stroke-width="10" stroke="green"/> 
+
+</script>
+</body>
+</html>
