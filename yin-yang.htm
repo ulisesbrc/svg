@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SVG</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 	<meta name="viewport" content="width=device-width" />
+ 	<style type="text/css">
+ 		#contenedor{ background-image: linear-gradient(to right, #000000 0%,#ffffff 100%);
+ 		padding: 10%;
+ 		border-radius: 33px}
+ 	</style>
+</head>
+<body>
+<svg id="contenedor" height="200" width="250" style="margin:auto;margin-top:10%;display: block;">
+</svg>
+<script type="text/javascript">
+	var svgNS = "http:\/\/www.w3.org/2000/svg"
+	var cx = 125, cy = 100; //coordenadas del centro
+	var R = 100; //radio
+	var fill = '#fff';
+	var stroke = '#000';
+	var circulo = document.createElementNS(svgNS,"circle");
+	//establecemos los atributos al circulo
+	//  ( cx, cy, r, fill y stroke).
+	//círculo blanco bg ( fill="#fff" ) con un borde fino negro ( stroke="#000" ) y un radio de 80.
+	circulo.setAttributeNS(null,"cx", cx); 
+	circulo.setAttributeNS(null,"cy", cy);
+	circulo.setAttributeNS(null,"fill", fill); 
+	circulo.setAttributeNS(null,"stroke", stroke);
+	circulo.setAttributeNS(null,"r", R);
+	//Al final adjuntamos el elemento circulo al contenedor SVG.
+	var contenedor = document.getElementById("contenedor");
+	contenedor.appendChild(circulo);
+	var r = R/10; // el radio de los circulos rojos
+
+var dYin = "M" + cx + ", " + cy+
+            " A"+ R/2 +","+ R/2 +" 0 0,1 "+ (cx+R) +","+cy+
+            " A"+ R +","+ R +" 0 0,1 "+ (cx-R) +","+cy+
+            " A"+ R/2 +","+ R/2 +" 0 0,0 "+cx+","+cy;
+            // crea el yin               
+var Yin=document.createElementNS(svgNS,"path");   
+Yin.setAttributeNS(null,"d", dYin);
+contenedor.appendChild(Yin);
+// crea un circulo rojo encima de yin
+var circleYin = document.createElementNS(svgNS,"circle");
+circleYin.setAttributeNS(null,"cx", cx-R/2);
+circleYin.setAttributeNS(null,"cy", cy);
+circleYin.setAttributeNS(null,"r", r);
+circleYin.setAttributeNS(null,"fill", "#f00"); //circulo rojo
+contenedor.appendChild(circleYin);
+
+// crea un circulo rojo encima de yang
+var circleYang = document.createElementNS(svgNS,"circle");
+circleYang.setAttributeNS(null,"cx", cx+R/2);
+circleYang.setAttributeNS(null,"cy", cy);
+circleYang.setAttributeNS(null,"r", r);
+circleYang.setAttributeNS(null,"fill", "#f00");
+
+contenedor.appendChild(circleYang);
+</script>
+</body>
+</html>
