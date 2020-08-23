@@ -9,10 +9,7 @@
 	<style type="text/css">
 		body {background: black}
 		@font-face {
-  font-family: 'Hobo Std';
-  /* Antes de descargar el archivo, le decimos al buscador
-  que intente buscar en local la fuente con nombre
-  Cabin, Cabin Regular o Cabin-Regular */
+  font-family: 'Hobo-Std';
   src: local('HoboStd'),
        local('HoboStd Regular'),
        local('HoboStd-Regular'),
@@ -38,7 +35,7 @@
 	var contenedor = document.getElementById("contenedor");
 	contenedor.appendChild(poligono);
 	var texto = document.createElementNS(svgNS,"text");
-	texto.setAttributeNS(null,"font-family", "Hobo Std"); 
+	texto.setAttributeNS(null,"font-family", "Hobo-Std"); 
 	texto.setAttributeNS(null,"font-size", 31);
 	texto.setAttributeNS(null,"fill", "#fff");
 	
